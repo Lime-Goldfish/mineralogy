@@ -19,9 +19,13 @@ export default function Home() {
   const [gp3, setGP3] = useState("");
   const [gp4, setGP4] = useState("");
   const [gp5, setGP5] = useState("");
+  const [gp6, setGP6] = useState("");
   const [inossilicatos, setInossilicatos] = useState("");
   const [hornblenda, setHornblenda] = useState("");
   const [isCorrectEx2, setIsCorrectEx2] = useState<boolean | null>(null);
+  const [nesossilicatos, setNesossilicatos] = useState("");
+  const [olivina, setOlivina] = useState("");
+  const [isCorrectEx4, setIsCorrectEx4] = useState<boolean | null>(null);
 
   //exercicio 03
 
@@ -51,14 +55,18 @@ export default function Home() {
     const isGp3Correct = gp3 === "3";
     const isGp4Correct = gp4 === "2";
     const isGp5Correct = gp5 === "3";
+    const isGp6Correct = gp6 === "0";
     const isInossilicatosCorrect =
       inossilicatos.toLowerCase() === "inossilicatos";
     const isHornblendaCorrect = hornblenda.toLowerCase() === "hornblenda";
+    const isNesoSilicatosCorrect =
+      nesossilicatos.toLowerCase() === "nesossilicatos";
 
     // exercicio03
 
     const isCadeia2Correct = cadeia2.toLowerCase() === "simples";
-    const isDiopsidioCorrect = diopsidio.toLowerCase() === "diopsídio-hedenbergita";
+    const isDiopsidioCorrect =
+      diopsidio.toLowerCase() === "diopsídio-hedenbergita";
 
     setIsCorrectEx2(
       isGp2Correct &&
@@ -70,8 +78,13 @@ export default function Home() {
         isHornblendaCorrect
     );
 
+    const isOlivinaCorrect = olivina.toLowerCase() === "olivina";
+
     //exercicio 03
     setIsCorrectEx3(isCadeia2Correct && isDiopsidioCorrect);
+
+    //exercicio 04
+    setIsCorrectEx4(isNesoSilicatosCorrect && isGp6Correct && isOlivinaCorrect);
   };
 
   return (
@@ -289,6 +302,60 @@ export default function Home() {
             {setIsCorrectEx3 !== null && (
               <div className={`text-${isCorrectEx3 ? "green" : "red"}-500`}>
                 {isCorrectEx3 ? "Correct" : "Incorrect"}
+              </div>
+            )}
+
+            <div className="flex flex-col items-center">
+              <figure className="mt-16">
+                <img
+                  className="aspect-video rounded-xl bg-gray-50 object-cover"
+                  src="images/exercicio04.png"
+                  alt=""
+                />
+                <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                  <InformationCircleIcon
+                    className="mt-0.5 h-5 w-5 flex-none text-gray-300"
+                    aria-hidden="true"
+                  />
+                  Descrição da imagem.
+                </figcaption>
+              </figure>
+              <h2 className="mt-10">Subclasse</h2>
+              <input
+                name="gp6"
+                id="gp6"
+                value={gp6}
+                onChange={(e) => setGP6(e.target.value)}
+                className="mt-2 block w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="gp6"
+              />
+              <input
+                name="Nesossilicatos"
+                id="Nesossilicatos"
+                value={nesossilicatos}
+                onChange={(e) => setNesossilicatos(e.target.value)}
+                className="w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Nesossilicatos"
+              />
+              <input
+                name="Olivina"
+                id="Olivina"
+                value={olivina}
+                onChange={(e) => setOlivina(e.target.value)}
+                className="w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Olivina"
+              />
+              <button
+                onClick={handleSubmit}
+                className="bg-red-900 text-white px-4 py-2 rounded-md mt-4 hover:bg-red-800"
+              >
+                Submit
+              </button>
+            </div>
+
+            {isCorrectEx4 !== null && (
+              <div className={`text-${isCorrectEx4 ? "green" : "red"}-500`}>
+                {isCorrectEx4 ? "Correct" : "Incorrect"}
               </div>
             )}
           </div>
