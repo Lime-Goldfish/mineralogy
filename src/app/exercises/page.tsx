@@ -12,9 +12,8 @@ export default function Home() {
   const [plagioclasios, setPlagioclasios] = useState("");
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
-  //exercicio 02
-
   const [cadeia, setCadeia] = useState("");
+  const [cadeia2, setCadeia2] = useState("");
   const [gp2, setGP2] = useState("");
   const [gp3, setGP3] = useState("");
   const [gp4, setGP4] = useState("");
@@ -22,23 +21,23 @@ export default function Home() {
   const [gp6, setGP6] = useState("");
   const [inossilicatos, setInossilicatos] = useState("");
   const [hornblenda, setHornblenda] = useState("");
-  const [isCorrectEx2, setIsCorrectEx2] = useState<boolean | null>(null);
   const [nesossilicatos, setNesossilicatos] = useState("");
-  const [olivina, setOlivina] = useState("");
-  const [isCorrectEx4, setIsCorrectEx4] = useState<boolean | null>(null);
-
-  //exercicio 03
-
-  const [cadeia2, setCadeia2] = useState("");
   const [diopsidio, setDiopsidio] = useState("");
+  const [olivina, setOlivina] = useState("");
+  const [isCorrectEx2, setIsCorrectEx2] = useState<boolean | null>(null);
   const [isCorrectEx3, setIsCorrectEx3] = useState<boolean | null>(null);
+  const [isCorrectEx4, setIsCorrectEx4] = useState<boolean | null>(null);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
 
-    //exercicio 01
-
     const isGpCorrect = gp === "4";
+    const isGp2Correct = gp2 === "2";
+    const isGp3Correct = gp3 === "3";
+    const isGp4Correct = gp4 === "2";
+    const isGp5Correct = gp5 === "3";
+    const isGp6Correct = gp6 === "0";
+
     const isTectossilicatosCorrect =
       tectossilicatos.toLowerCase() === "tectossilicatos";
     const isPlagioclasiosCorrect =
@@ -48,25 +47,16 @@ export default function Home() {
       isGpCorrect && isTectossilicatosCorrect && isPlagioclasiosCorrect
     );
 
-    //exercicio 02
-
     const isCadeiaCorrect = cadeia.toLowerCase() === "dupla";
-    const isGp2Correct = gp2 === "2";
-    const isGp3Correct = gp3 === "3";
-    const isGp4Correct = gp4 === "2";
-    const isGp5Correct = gp5 === "3";
-    const isGp6Correct = gp6 === "0";
+    const isCadeia2Correct = cadeia2.toLowerCase() === "simples";
     const isInossilicatosCorrect =
       inossilicatos.toLowerCase() === "inossilicatos";
     const isHornblendaCorrect = hornblenda.toLowerCase() === "hornblenda";
     const isNesoSilicatosCorrect =
       nesossilicatos.toLowerCase() === "nesossilicatos";
-
-    // exercicio03
-
-    const isCadeia2Correct = cadeia2.toLowerCase() === "simples";
     const isDiopsidioCorrect =
       diopsidio.toLowerCase() === "diopsídio-hedenbergita";
+    const isOlivinaCorrect = olivina.toLowerCase() === "olivina";
 
     setIsCorrectEx2(
       isGp2Correct &&
@@ -77,13 +67,7 @@ export default function Home() {
         isInossilicatosCorrect &&
         isHornblendaCorrect
     );
-
-    const isOlivinaCorrect = olivina.toLowerCase() === "olivina";
-
-    //exercicio 03
     setIsCorrectEx3(isCadeia2Correct && isDiopsidioCorrect);
-
-    //exercicio 04
     setIsCorrectEx4(isNesoSilicatosCorrect && isGp6Correct && isOlivinaCorrect);
   };
 
