@@ -28,10 +28,13 @@ export default function Home() {
   const [sorossilicatos, setSorossilicatos] = useState("");
   const [grupoDeEpidoto, setGrupoDeEpidoto] = useState("");
   const [tetraedrosDuplos, setTetraedrosDuplos] = useState("");
+  const [filossilicatos, setFilossilicatos] = useState("");
+  const [biotita, setBiotita] = useState("");
   const [isCorrectEx2, setIsCorrectEx2] = useState<boolean | null>(null);
   const [isCorrectEx3, setIsCorrectEx3] = useState<boolean | null>(null);
   const [isCorrectEx4, setIsCorrectEx4] = useState<boolean | null>(null);
   const [isCorrectEx5, setIsCorrectEx5] = useState<boolean | null>(null);
+  const [isCorrectEx6, setIsCorrectEx6] = useState<boolean | null>(null);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -64,6 +67,9 @@ export default function Home() {
       grupoDeEpidoto.toLowerCase() === "grupo de epidoto";
     const isTetraedrosDuplosCorrect =
       tetraedrosDuplos.toLowerCase() === "duplos";
+    const isFiloSilicatosCorrect =
+      filossilicatos.toLowerCase() === "filossilicatos";
+    const isBiotitaCorrect = biotita.toLowerCase() === "biotita";
 
     setIsCorrect(
       isGpCorrect && isTectossilicatosCorrect && isPlagioclasiosCorrect
@@ -85,6 +91,7 @@ export default function Home() {
         isGrupoDeEpidotoCorrect &&
         isTetraedrosDuplosCorrect
     );
+    setIsCorrectEx6(isFiloSilicatosCorrect && isBiotitaCorrect);
   };
 
   return (
@@ -418,6 +425,53 @@ export default function Home() {
             {isCorrectEx5 !== null && (
               <div className={`text-${isCorrectEx5 ? "green" : "red"}-500`}>
                 {isCorrectEx5 ? "Correct" : "Incorrect"}
+              </div>
+            )}
+
+            <div className="flex flex-col items-center">
+              <figure className="mt-16">
+                <img
+                  className="aspect-video rounded-xl bg-gray-50 object-cover"
+                  src="images/exercicio06.png"
+                  alt=""
+                />
+                <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                  <InformationCircleIcon
+                    className="mt-0.5 h-5 w-5 flex-none text-gray-300"
+                    aria-hidden="true"
+                  />
+                  Descrição da imagem.
+                </figcaption>
+              </figure>
+              <h2 className="mt-10">Subclasse</h2>
+              <input
+                name="Filossilicatos"
+                id="Filossilicatos"
+                value={filossilicatos}
+                onChange={(e) => setFilossilicatos(e.target.value)}
+                className="mt-2 block w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Filossilicatos"
+              />
+              <input
+                name="Biotita"
+                id="Biotita"
+                value={biotita}
+                onChange={(e) => setBiotita(e.target.value)}
+                className="w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Biotita"
+                
+              />
+              <button
+                onClick={handleSubmit}
+                className="bg-red-900 text-white px-4 py-2 rounded-md mt-4 hover:bg-red-800"
+              >
+                Submit
+              </button>
+            </div>
+
+            {isCorrectEx6 !== null && (
+              <div className={`text-${isCorrectEx6 ? "green" : "red"}-500`}>
+                {isCorrectEx6 ? "Correct" : "Incorrect"}
               </div>
             )}
           </div>
