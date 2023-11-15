@@ -19,14 +19,19 @@ export default function Home() {
   const [gp4, setGP4] = useState("");
   const [gp5, setGP5] = useState("");
   const [gp6, setGP6] = useState("");
+  const [gp7, setGP7] = useState("");
   const [inossilicatos, setInossilicatos] = useState("");
   const [hornblenda, setHornblenda] = useState("");
   const [nesossilicatos, setNesossilicatos] = useState("");
   const [diopsidio, setDiopsidio] = useState("");
   const [olivina, setOlivina] = useState("");
+  const [sorossilicatos, setSorossilicatos] = useState("");
+  const [grupoDeEpidoto, setGrupoDeEpidoto] = useState("");
+  const [tetraedrosDuplos, setTetraedrosDuplos] = useState("");
   const [isCorrectEx2, setIsCorrectEx2] = useState<boolean | null>(null);
   const [isCorrectEx3, setIsCorrectEx3] = useState<boolean | null>(null);
   const [isCorrectEx4, setIsCorrectEx4] = useState<boolean | null>(null);
+  const [isCorrectEx5, setIsCorrectEx5] = useState<boolean | null>(null);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -37,16 +42,14 @@ export default function Home() {
     const isGp4Correct = gp4 === "2";
     const isGp5Correct = gp5 === "3";
     const isGp6Correct = gp6 === "0";
+    const isGp1Correct = gp7 === "1";
 
     const isTectossilicatosCorrect =
       tectossilicatos.toLowerCase() === "tectossilicatos";
     const isPlagioclasiosCorrect =
       plagioclasios.toLowerCase() === "plagioclasios";
-
-    setIsCorrect(
-      isGpCorrect && isTectossilicatosCorrect && isPlagioclasiosCorrect
-    );
-
+    const isSorossilicatosCorrect =
+      sorossilicatos.toLowerCase() === "sorossilicatos";
     const isCadeiaCorrect = cadeia.toLowerCase() === "dupla";
     const isCadeia2Correct = cadeia2.toLowerCase() === "simples";
     const isInossilicatosCorrect =
@@ -57,7 +60,14 @@ export default function Home() {
     const isDiopsidioCorrect =
       diopsidio.toLowerCase() === "diopsídio-hedenbergita";
     const isOlivinaCorrect = olivina.toLowerCase() === "olivina";
+    const isGrupoDeEpidotoCorrect =
+      grupoDeEpidoto.toLowerCase() === "grupo de epidoto";
+    const isTetraedrosDuplosCorrect =
+      tetraedrosDuplos.toLowerCase() === "duplos";
 
+    setIsCorrect(
+      isGpCorrect && isTectossilicatosCorrect && isPlagioclasiosCorrect
+    );
     setIsCorrectEx2(
       isGp2Correct &&
         isGp3Correct &&
@@ -69,6 +79,12 @@ export default function Home() {
     );
     setIsCorrectEx3(isCadeia2Correct && isDiopsidioCorrect);
     setIsCorrectEx4(isNesoSilicatosCorrect && isGp6Correct && isOlivinaCorrect);
+    setIsCorrectEx5(
+      isGp1Correct &&
+        isSorossilicatosCorrect &&
+        isGrupoDeEpidotoCorrect &&
+        isTetraedrosDuplosCorrect
+    );
   };
 
   return (
@@ -340,6 +356,68 @@ export default function Home() {
             {isCorrectEx4 !== null && (
               <div className={`text-${isCorrectEx4 ? "green" : "red"}-500`}>
                 {isCorrectEx4 ? "Correct" : "Incorrect"}
+              </div>
+            )}
+
+            <div className="flex flex-col items-center">
+              <figure className="mt-16">
+                <img
+                  className="aspect-video rounded-xl bg-gray-50 object-cover"
+                  src="images/exercicio05.png"
+                  alt=""
+                />
+                <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                  <InformationCircleIcon
+                    className="mt-0.5 h-5 w-5 flex-none text-gray-300"
+                    aria-hidden="true"
+                  />
+                  Descrição da imagem.
+                </figcaption>
+              </figure>
+              <h2 className="mt-10">Subclasse</h2>
+              <input
+                name="gp7"
+                id="gp7"
+                value={gp7}
+                onChange={(e) => setGP7(e.target.value)}
+                className="mt-2 block w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="gp7"
+              />
+              <input
+                name="Tetraedros Duplos"
+                id="Tetraedros Duplos"
+                value={tetraedrosDuplos}
+                onChange={(e) => setTetraedrosDuplos(e.target.value)}
+                className="mt-2 block w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="TetraedrosDuplos"
+              />
+              <input
+                name="Sorossilicatos"
+                id="Sorossilicatos"
+                value={sorossilicatos}
+                onChange={(e) => setSorossilicatos(e.target.value)}
+                className="w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Sorossilicatos"
+              />
+              <input
+                name="Grupo de Epidoto"
+                id="Grupo de Epidoto"
+                value={grupoDeEpidoto}
+                onChange={(e) => setGrupoDeEpidoto(e.target.value)}
+                className="w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Grupo de Epidoto"
+              />
+              <button
+                onClick={handleSubmit}
+                className="bg-red-900 text-white px-4 py-2 rounded-md mt-4 hover:bg-red-800"
+              >
+                Submit
+              </button>
+            </div>
+
+            {isCorrectEx5 !== null && (
+              <div className={`text-${isCorrectEx5 ? "green" : "red"}-500`}>
+                {isCorrectEx5 ? "Correct" : "Incorrect"}
               </div>
             )}
           </div>
