@@ -30,11 +30,15 @@ export default function Home() {
   const [tetraedrosDuplos, setTetraedrosDuplos] = useState("");
   const [filossilicatos, setFilossilicatos] = useState("");
   const [biotita, setBiotita] = useState("");
+  const [aneis, setAneis] = useState("");
+  const [turmalina, setTurmalina] = useState("");
+  const [ciclossilicatos, setCiclossilicatos] = useState("");
   const [isCorrectEx2, setIsCorrectEx2] = useState<boolean | null>(null);
   const [isCorrectEx3, setIsCorrectEx3] = useState<boolean | null>(null);
   const [isCorrectEx4, setIsCorrectEx4] = useState<boolean | null>(null);
   const [isCorrectEx5, setIsCorrectEx5] = useState<boolean | null>(null);
   const [isCorrectEx6, setIsCorrectEx6] = useState<boolean | null>(null);
+  const [isCorrectEx7, setIsCorrectEx7] = useState<boolean | null>(null);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -70,6 +74,10 @@ export default function Home() {
     const isFiloSilicatosCorrect =
       filossilicatos.toLowerCase() === "filossilicatos";
     const isBiotitaCorrect = biotita.toLowerCase() === "biotita";
+    const isAneisCorrect = aneis.toLowerCase() === "aneis";
+    const isCiclossilicatosCorrect =
+      ciclossilicatos.toLowerCase() === "ciclossilicatos";
+    const isTurmalinaCorrect = turmalina.toLowerCase() === "turmalina";
 
     setIsCorrect(
       isGpCorrect && isTectossilicatosCorrect && isPlagioclasiosCorrect
@@ -92,6 +100,9 @@ export default function Home() {
         isTetraedrosDuplosCorrect
     );
     setIsCorrectEx6(isFiloSilicatosCorrect && isBiotitaCorrect);
+    setIsCorrectEx7(
+      isAneisCorrect && isCiclossilicatosCorrect && isTurmalinaCorrect
+    );
   };
 
   return (
@@ -459,7 +470,6 @@ export default function Home() {
                 onChange={(e) => setBiotita(e.target.value)}
                 className="w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 placeholder="Biotita"
-                
               />
               <button
                 onClick={handleSubmit}
@@ -472,6 +482,61 @@ export default function Home() {
             {isCorrectEx6 !== null && (
               <div className={`text-${isCorrectEx6 ? "green" : "red"}-500`}>
                 {isCorrectEx6 ? "Correct" : "Incorrect"}
+              </div>
+            )}
+
+            <div className="flex flex-col items-center">
+              <figure className="mt-16">
+                <img
+                  className="aspect-video rounded-xl bg-gray-50 object-cover"
+                  src="images/exercicio07.png"
+                  alt=""
+                />
+                <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                  <InformationCircleIcon
+                    className="mt-0.5 h-5 w-5 flex-none text-gray-300"
+                    aria-hidden="true"
+                  />
+                  Descrição da imagem.
+                </figcaption>
+              </figure>
+              <h2 className="mt-10">Subclasse</h2>
+
+              <input
+                name="Anéis"
+                id="Aneís"
+                value={aneis}
+                onChange={(e) => setAneis(e.target.value)}
+                className="mt-2 block w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Aneís"
+              />
+              <input
+                name="Ciclossilicatos"
+                id="Ciclossilicatos"
+                value={ciclossilicatos}
+                onChange={(e) => setCiclossilicatos(e.target.value)}
+                className="mt-2 block w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Ciclossilicatos"
+              />
+              <input
+                name="Turmalina"
+                id="Turmalina"
+                value={turmalina}
+                onChange={(e) => setTurmalina(e.target.value)}
+                className="w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Turmalina"
+              />
+              <button
+                onClick={handleSubmit}
+                className="bg-red-900 text-white px-4 py-2 rounded-md mt-4 hover:bg-red-800"
+              >
+                Submit
+              </button>
+            </div>
+
+            {isCorrectEx7 !== null && (
+              <div className={`text-${isCorrectEx7 ? "green" : "red"}-500`}>
+                {isCorrectEx7 ? "Correct" : "Incorrect"}
               </div>
             )}
           </div>
