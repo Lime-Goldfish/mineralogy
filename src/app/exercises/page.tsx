@@ -26,6 +26,8 @@ export default function Home() {
   //exercicio 03
 
   const [cadeia2, setCadeia2] = useState("");
+  const [diopsidio, setDiopsidio] = useState("");
+  const [isCorrectEx3, setIsCorrectEx3] = useState<boolean | null>(null);
 
   const handleSubmit = (event: any) => {
     event.preventDefault();
@@ -49,18 +51,27 @@ export default function Home() {
     const isGp3Correct = gp3 === "3";
     const isGp4Correct = gp4 === "2";
     const isGp5Correct = gp5 === "3";
-    const isInossilicatosCorrect = inossilicatos.toLowerCase() === "inossilicatos";
+    const isInossilicatosCorrect =
+      inossilicatos.toLowerCase() === "inossilicatos";
     const isHornblendaCorrect = hornblenda.toLowerCase() === "hornblenda";
+
+    // exercicio03
+
+    const isCadeia2Correct = cadeia2.toLowerCase() === "simples";
+    const isDiopsidioCorrect = diopsidio.toLowerCase() === "diopsídio-hedenbergita";
 
     setIsCorrectEx2(
       isGp2Correct &&
-      isGp3Correct &&
-      isGp4Correct &&
-      isGp5Correct &&
-      isCadeiaCorrect &&
+        isGp3Correct &&
+        isGp4Correct &&
+        isGp5Correct &&
+        isCadeiaCorrect &&
         isInossilicatosCorrect &&
         isHornblendaCorrect
     );
+
+    //exercicio 03
+    setIsCorrectEx3(isCadeia2Correct && isDiopsidioCorrect);
   };
 
   return (
@@ -184,8 +195,8 @@ export default function Home() {
                 placeholder="GP5"
               />
               <input
-                name="cadeia2"
-                id="cadeia2"
+                name="cadeia1"
+                id="cadeia1"
                 value={cadeia}
                 onChange={(e) => setCadeia(e.target.value)}
                 className="mt-2 block w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
@@ -224,6 +235,60 @@ export default function Home() {
             {isCorrectEx2 !== null && (
               <div className={`text-${isCorrectEx2 ? "green" : "red"}-500`}>
                 {isCorrectEx2 ? "Correct" : "Incorrect"}
+              </div>
+            )}
+
+            <div className="flex flex-col items-center">
+              <figure className="mt-16">
+                <img
+                  className="aspect-video rounded-xl bg-gray-50 object-cover"
+                  src="images/exercicio03.png"
+                  alt=""
+                />
+                <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                  <InformationCircleIcon
+                    className="mt-0.5 h-5 w-5 flex-none text-gray-300"
+                    aria-hidden="true"
+                  />
+                  Descrição da imagem.
+                </figcaption>
+              </figure>
+              <h2 className="mt-10">Subclasse</h2>
+              <input
+                name="cadeia2"
+                id="cadeia2"
+                value={cadeia2}
+                onChange={(e) => setCadeia2(e.target.value)}
+                className="mt-2 block w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="cadeia2"
+              />
+              <input
+                name="Inossilicatos"
+                id="Inossilicatos"
+                value={inossilicatos}
+                onChange={(e) => setInossilicatos(e.target.value)}
+                className="w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Inossilicatos"
+              />
+              <input
+                name="Diopsídio-Hedenbergita"
+                id="Diopsídio-Hedenbergita"
+                value={diopsidio}
+                onChange={(e) => setDiopsidio(e.target.value)}
+                className="w-auto rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                placeholder="Diopsídio-Hedenbergita"
+              />
+              <button
+                onClick={handleSubmit}
+                className="bg-red-900 text-white px-4 py-2 rounded-md mt-4 hover:bg-red-800"
+              >
+                Submit
+              </button>
+            </div>
+
+            {setIsCorrectEx3 !== null && (
+              <div className={`text-${isCorrectEx3 ? "green" : "red"}-500`}>
+                {isCorrectEx3 ? "Correct" : "Incorrect"}
               </div>
             )}
           </div>
