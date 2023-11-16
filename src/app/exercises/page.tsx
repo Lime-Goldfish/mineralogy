@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Header from "../components/header";
 import {
+  ArrowRightIcon,
   CheckCircleIcon,
   InformationCircleIcon,
 } from "@heroicons/react/24/outline";
@@ -110,12 +111,12 @@ export default function Home() {
       <Header />
       <main>
         <div className="bg-white px-6 py-32 lg:px-8">
-          <div className="mx-auto max-w-3xl text-base leading-7 text-gray-700">
+            <div className="mx-auto max-w-[70rem] text-base leading-7 text-gray-700">
             <p className="text-base font-semibold leading-7 text-indigo-600">
               Introducing
             </p>
             <h1 className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              Preencha os campos abaixo com a resposta correta
+              1) Correlacione e preencha os campos abaixo com a resposta correta
             </h1>
             <div className="flex flex-col items-center">
               <figure className="mt-16">
@@ -539,6 +540,85 @@ export default function Home() {
                 {isCorrectEx7 ? "Correct" : "Incorrect"}
               </div>
             )}
+
+            <h1 className="mt-10 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              2) Preencha os campos plotados no diagrama da série
+              fosterita-faialita:
+            </h1>
+            <div className="flex flex-row items-center">
+              <div className="flex-1">
+                <figure className="mt-16">
+                  <img
+                    className=" rounded-xl bg-gray-50 object-cover"
+                    src="images/exercicio08.png"
+                    alt=""
+                  />
+                  <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                    <InformationCircleIcon
+                      className="mt-0.5 h-5 w-5 flex-none text-gray-300"
+                      aria-hidden="true"
+                    />
+                    Descrição da imagem.
+                  </figcaption>
+                </figure>
+              </div>
+              <div className="flex-1">
+                <ul className="list-disc">
+                  <li className="flex items-center">
+                    <h2 className="font-bold text-3xl">FoFa</h2>
+                    <ArrowRightIcon className="h-6 w-6 ml-2 font-bold" />
+                    <h2 className="font-bold text-3xl">&nbsp; (Mg0,6Fe0,4)2SiO4</h2>
+                  </li>
+                  <li className="mt-5 mb-5 flex items-center">
+                    <h2 className="font-bold text-3xl">FoFa</h2>
+                    <ArrowRightIcon className="h-6 w-6 ml-2 font-bold" />
+                    <h2 className="font-bold text-3xl">&nbsp; (Mg0,6Fe0,4)2SiO4</h2>
+                  </li>
+                  <li className="flex items-center">
+                    <h2 className="font-bold text-3xl">FoFa</h2>
+                    <ArrowRightIcon className="h-6 w-6 ml-2 font-bold" />
+                    <h2 className="font-bold text-3xl">&nbsp; (Mg0,6Fe0,4)2SiO4</h2>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div className="flex flex-row items-center">
+              <div className="flex-1">
+                <figure className="mt-16">
+                  <img
+                    className=" rounded-xl bg-gray-50 object-cover"
+                    src="images/exercicio08.png"
+                    alt=""
+                  />
+                  <figcaption className="mt-4 flex gap-x-2 text-sm leading-6 text-gray-500">
+                    <InformationCircleIcon
+                      className="mt-0.5 h-5 w-5 flex-none text-gray-300"
+                      aria-hidden="true"
+                    />
+                    Descrição da imagem.
+                  </figcaption>
+                </figure>
+              </div>
+              <div className="flex-1">
+                <ul className="list-disc">
+                  <li className="flex items-center">
+                    <h2 className="font-bold text-3xl">FoFa</h2>
+                    <ArrowRightIcon className="h-6 w-6 ml-2 font-bold" />
+                    <h2 className="font-bold text-3xl">&nbsp; (Mg0,6Fe0,4)2SiO4</h2>
+                  </li>
+                  <li className="mt-5 mb-5 flex items-center">
+                    <h2 className="font-bold text-3xl">FoFa</h2>
+                    <ArrowRightIcon className="h-6 w-6 ml-2 font-bold" />
+                    <h2 className="font-bold text-3xl">&nbsp; (Mg0,6Fe0,4)2SiO4</h2>
+                  </li>
+                  <li className="flex items-center">
+                    <h2 className="font-bold text-3xl">FoFa</h2>
+                    <ArrowRightIcon className="h-6 w-6 ml-2 font-bold" />
+                    <h2 className="font-bold text-3xl">&nbsp; (Mg0,6Fe0,4)2SiO4</h2>
+                  </li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
       </main>
