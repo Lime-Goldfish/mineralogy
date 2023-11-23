@@ -541,11 +541,6 @@ export default function Home() {
                 {isCorrectEx7 ? "Correct" : "Incorrect"}
               </div>
             )}
-
-            <h1 className="mt-10 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-              2) Preencha os campos plotados no diagrama da série
-              fosterita-faialita:
-            </h1>
             <Diagrams />
           </div>
         </div>
