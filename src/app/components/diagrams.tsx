@@ -13,14 +13,43 @@ export function Diagrams() {
   const [fe1Value, setFe1Value] = useState("");
 
   const [fo2Value, setFo2Value] = useState("");
-    const [fa2Value, setFa2Value] = useState("");
-    const [mg2Value, setMg2Value] = useState("");
-    const [fe2Value, setFe2Value] = useState("");
+  const [fa2Value, setFa2Value] = useState("");
+  const [mg2Value, setMg2Value] = useState("");
+  const [fe2Value, setFe2Value] = useState("");
 
-    const [fo3Value, setFo3Value] = useState("");
-    const [fa3Value, setFa3Value] = useState("");
-    const [mg3Value, setMg3Value] = useState("");
-    const [fe3Value, setFe3Value] = useState("");
+  const [fo3Value, setFo3Value] = useState("");
+  const [fa3Value, setFa3Value] = useState("");
+  const [mg3Value, setMg3Value] = useState("");
+  const [fe3Value, setFe3Value] = useState("");
+
+  const [fo4Value, setFo4Value] = useState("");
+  const [fa4Value, setFa4Value] = useState("");
+  const [mg4Value, setMg4Value] = useState("");
+  const [fe4Value, setFe4Value] = useState("");
+
+  const [fo5Value, setFo5Value] = useState("");
+  const [fa5Value, setFa5Value] = useState("");
+  const [mg5Value, setMg5Value] = useState("");
+  const [fe5Value, setFe5Value] = useState("");
+
+  const [fo6Value, setFo6Value] = useState("");
+  const [fa6Value, setFa6Value] = useState("");
+  const [mg6Value, setMg6Value] = useState("");
+  const [fe6Value, setFe6Value] = useState("");
+
+  const [success1Message, setSuccess1Message] = useState("");
+  const [success2Message, setSuccess2Message] = useState("");
+  const [success3Message, setSuccess3Message] = useState("");
+  const [success4Message, setSuccess4Message] = useState("");
+  const [success5Message, setSuccess5Message] = useState("");
+  const [success6Message, setSuccess6Message] = useState("");
+
+  const [error1Message, setError1Message] = useState("");
+  const [error2Message, setError2Message] = useState("");
+  const [error3Message, setError3Message] = useState("");
+  const [error4Message, setError4Message] = useState("");
+  const [error5Message, setError5Message] = useState("");
+  const [error6Message, setError6Message] = useState("");
 
   // Function to handle form submission
   const handleSubmit = () => {
@@ -40,12 +69,61 @@ export function Diagrams() {
     const mg3 = parseFloat(mg3Value);
     const fe3 = parseFloat(fe3Value);
 
+    const fo4 = parseFloat(fo4Value);
+    const fa4 = parseFloat(fa4Value);
+    const mg4 = parseFloat(mg4Value);
+    const fe4 = parseFloat(fe4Value);
+
+    const fo5 = parseFloat(fo5Value);
+    const fa5 = parseFloat(fa5Value);
+    const mg5 = parseFloat(mg5Value);
+    const fe5 = parseFloat(fe5Value);
+
+    const fo6 = parseFloat(fo6Value);
+    const fa6 = parseFloat(fa6Value);
+    const mg6 = parseFloat(mg6Value);
+    const fe6 = parseFloat(fe6Value);
+
     // Validation logic
     if (fo1 === 60 && fa1 === 40 && mg1 === 0.6 && fe1 === 0.4) {
-      console.log("Validation passed!");
-      // Handle the correct case
+      setSuccess1Message("Correto!");
     } else {
-      console.error("Validation failed!");
+      setError1Message("Incorreto!");
+      // Handle the error case
+    }
+
+    if (fo2 === 35 && fa2 === 65 && mg2 === 0.35 && fe2 === 0.65) {
+      setSuccess2Message("Correto!");
+    } else {
+      setError2Message("Incorreto!");
+      // Handle the error case
+    }
+
+    if (fo3 === 30 && fa3 === 70 && mg3 === 0.3 && fe3 === 0.7) {
+      setSuccess3Message("Correto!");
+    } else {
+      setError3Message("Incorreto!");
+      // Handle the error case
+    }
+
+    if (fo4 === 45 && fa4 === 55 && mg4 === 0.45 && fe4 === 0.55) {
+      setSuccess4Message("Correto!");
+    } else {
+      setError4Message("Incorreto!");
+      // Handle the error case
+    }
+
+    if (fo5 === 75 && fa5 === 25 && mg5 === 0.75 && fe5 === 0.25) {
+      setSuccess5Message("Correto!");
+    } else {
+      setError5Message("Incorreto!");
+      // Handle the error case
+    }
+
+    if (fo6 === 70 && fa6 === 30 && mg6 === 0.7 && fe6 === 0.3) {
+      setSuccess6Message("Correto!");
+    } else {
+      setError6Message("Incorreto!");
       // Handle the error case
     }
   };
@@ -99,35 +177,52 @@ export function Diagrams() {
                 &nbsp; (Mg
                 <span className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" 
-                  value={mg1Value}
-                  onChange={(e) => setMg1Value(e.target.value)}/>
+                  <input
+                    className="text-red-600 w-[4.6rem] border-b-2 border-red-500"
+                    value={mg1Value}
+                    onChange={(e) => setMg1Value(e.target.value)}
+                  />
                 </span>
                 Fe
                 <span className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" 
-                  value={fe1Value}
-                  onChange={(e) => setFe1Value(e.target.value)}/>
+                  <input
+                    className="text-red-600 w-[4.6rem] border-b-2 border-red-500"
+                    value={fe1Value}
+                    onChange={(e) => setFe1Value(e.target.value)}
+                  />
                 </span>
                 )2SiO4
               </h2>
+              {success1Message ? (
+                <div className="absolute right-[305px] text-green-600 text-xl font-bold my-4">
+                  {success1Message}
+                </div>
+              ) : error1Message ? (
+                <div className="absolute right-[305px] text-red-600 text-xl font-bold my-4">
+                  {error1Message}
+                </div>
+              ) : null}
             </li>
             <li className="mt-5 mb-5 flex items-center">
               <h2 className="font-bold text-3xl">
                 Fo
                 <sub className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-8 border-b-2 border-red-500" 
-                  value={fo2Value}
-                  onChange={(e) => setFo2Value(e.target.value)}/>
+                  <input
+                    className="text-red-600 w-8 border-b-2 border-red-500"
+                    value={fo2Value}
+                    onChange={(e) => setFo2Value(e.target.value)}
+                  />
                 </sub>
                 Fa
                 <sub className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-8 border-b-2 border-red-500" 
-                  value={fa2Value}
-                  onChange={(e) => setFa2Value(e.target.value)}/>
+                  <input
+                    className="text-red-600 w-8 border-b-2 border-red-500"
+                    value={fa2Value}
+                    onChange={(e) => setFa2Value(e.target.value)}
+                  />
                 </sub>
               </h2>
               <ArrowRightIcon className="h-6 w-6 ml-2 font-bold" />
@@ -135,35 +230,52 @@ export function Diagrams() {
                 &nbsp; (Mg
                 <span className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" 
-                  value={mg2Value}
-                  onChange={(e) => setMg2Value(e.target.value)}/>
+                  <input
+                    className="text-red-600 w-[4.6rem] border-b-2 border-red-500"
+                    value={mg2Value}
+                    onChange={(e) => setMg2Value(e.target.value)}
+                  />
                 </span>
                 Fe
                 <span className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" 
-                  value={fe2Value}
-                  onChange={(e) => setFe2Value(e.target.value)}/>
+                  <input
+                    className="text-red-600 w-[4.6rem] border-b-2 border-red-500"
+                    value={fe2Value}
+                    onChange={(e) => setFe2Value(e.target.value)}
+                  />
                 </span>
                 )2SiO4
               </h2>
+              {success2Message ? (
+                <div className="absolute right-[305px] text-green-600 text-xl font-bold my-4">
+                  {success2Message}
+                </div>
+              ) : error2Message ? (
+                <div className="absolute right-[305px] text-red-600 text-xl font-bold my-4">
+                  {error2Message}
+                </div>
+              ) : null}
             </li>
             <li className="flex items-center">
               <h2 className="font-bold text-3xl">
                 Fo
                 <sub className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-8 border-b-2 border-red-500" 
-                  value={fo3Value}
-                  onChange={(e) => setFo3Value(e.target.value)}/>
+                  <input
+                    className="text-red-600 w-8 border-b-2 border-red-500"
+                    value={fo3Value}
+                    onChange={(e) => setFo3Value(e.target.value)}
+                  />
                 </sub>
                 Fa
                 <sub className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-8 border-b-2 border-red-500" 
-                  value={fa3Value}
-                  onChange={(e) => setFa3Value(e.target.value)}/>
+                  <input
+                    className="text-red-600 w-8 border-b-2 border-red-500"
+                    value={fa3Value}
+                    onChange={(e) => setFa3Value(e.target.value)}
+                  />
                 </sub>
               </h2>
               <ArrowRightIcon className="h-6 w-6 ml-2 font-bold" />
@@ -171,19 +283,32 @@ export function Diagrams() {
                 &nbsp; (Mg
                 <span className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" 
-                  value={mg3Value}
-                  onChange={(e) => setMg3Value(e.target.value)}/>
+                  <input
+                    className="text-red-600 w-[4.6rem] border-b-2 border-red-500"
+                    value={mg3Value}
+                    onChange={(e) => setMg3Value(e.target.value)}
+                  />
                 </span>
                 Fe
                 <span className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" 
-                  value={fe3Value}
-                  onChange={(e) => setFe3Value(e.target.value)}/>
+                  <input
+                    className="text-red-600 w-[4.6rem] border-b-2 border-red-500"
+                    value={fe3Value}
+                    onChange={(e) => setFe3Value(e.target.value)}
+                  />
                 </span>
                 )2SiO4
               </h2>
+              {success3Message ? (
+                <div className="absolute right-[305px] text-green-600 text-xl font-bold my-4">
+                  {success3Message}
+                </div>
+              ) : error3Message ? (
+                <div className="absolute right-[305px] text-red-600 text-xl font-bold my-4">
+                  {error3Message}
+                </div>
+              ) : null}
             </li>
             <button
               onClick={() => {
@@ -220,33 +345,62 @@ export function Diagrams() {
                 Fo
                 <sub className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-8 border-b-2 border-red-500" />
+                  <input
+                    className="text-red-600 w-8 border-b-2 border-red-500"
+                    value={fo4Value}
+                    onChange={(e) => setFo4Value(e.target.value)}
+                  />
                 </sub>
                 Fa
                 <sub className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-8 border-b-2 border-red-500" />
+                  <input
+                    className="text-red-600 w-8 border-b-2 border-red-500"
+                    value={fa4Value}
+                    onChange={(e) => setFa4Value(e.target.value)}
+                  />
                 </sub>
               </h2>
               <ArrowRightIcon className="h-6 w-6 ml-2 font-bold" />
               <h2 className="font-bold text-3xl">
                 &nbsp; (Mg
-                <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" />
+                <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" 
+                value={mg4Value}
+                onChange={(e) => setMg4Value(e.target.value)}
+                />
                 Fe
-                <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" />
+                <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" 
+                value={fe4Value}
+                onChange={(e) => setFe4Value(e.target.value)}
+                />
                 2SiO4
               </h2>
+              {success4Message ? (
+                <div className="absolute right-[305px] text-green-600 text-xl font-bold my-4">
+                  {success4Message}
+                </div>
+              ) : error4Message ? (
+                <div className="absolute right-[305px] text-red-600 text-xl font-bold my-4">
+                  {error4Message}
+                </div>
+              ) : null}
             </li>
             <li className="mt-5 mb-5 flex items-center">
               <h2 className="font-bold text-3xl">
                 Fo
                 <sub className="text-red-600">
-                  <input className="text-red-600 w-10 border-b-2 border-red-500" />
+                  <input className="text-red-600 w-10 border-b-2 border-red-500" 
+                  value={fo5Value}
+                  onChange={(e) => setFo5Value(e.target.value)}
+                  />
                 </sub>
                 Fa
                 <sub className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-8 border-b-2 border-red-500" />
+                  <input className="text-red-600 w-8 border-b-2 border-red-500" 
+                  value={fa5Value}
+                  onChange={(e) => setFa5Value(e.target.value)}
+                  />
                 </sub>
               </h2>
               <ArrowRightIcon className="h-6 w-6 ml-2 font-bold" />
@@ -254,27 +408,48 @@ export function Diagrams() {
                 &nbsp; (Mg
                 <span className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" />
+                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" 
+                  value={mg5Value}
+                  onChange={(e) => setMg5Value(e.target.value)}
+                  />
                 </span>
                 Fe
                 <span className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" />
+                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" 
+                  value={fe5Value}
+                  onChange={(e) => setFe5Value(e.target.value)}
+                  />
                 </span>
                 )2SiO4
               </h2>
+              {success5Message ? (
+                <div className="absolute right-[305px] text-green-600 text-xl font-bold my-4">
+                  {success5Message}
+                </div>
+              ) : error5Message ? (
+                <div className="absolute right-[305px] text-red-600 text-xl font-bold my-4">
+                  {error5Message}
+                </div>
+              ) : null}
             </li>
             <li className="flex items-center">
               <h2 className="font-bold text-3xl">
                 Fo
                 <sub className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-8 border-b-2 border-red-500" />
+                  <input className="text-red-600 w-8 border-b-2 border-red-500" 
+                  value={fo6Value}
+                  onChange={(e) => setFo6Value(e.target.value)}
+                  />
                 </sub>
                 Fa
                 <sub className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-8 border-b-2 border-red-500" />
+                  <input className="text-red-600 w-8 border-b-2 border-red-500" 
+                  value={fa6Value}
+                  onChange={(e) => setFa6Value(e.target.value)}
+                  />
                 </sub>
               </h2>
               <ArrowRightIcon className="h-6 w-6 ml-2 font-bold" />
@@ -282,19 +457,34 @@ export function Diagrams() {
                 &nbsp; (Mg
                 <span className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" />
+                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" 
+                  value={mg6Value}
+                  onChange={(e) => setMg6Value(e.target.value)}
+                  />
                 </span>
                 Fe
                 <span className="text-red-600">
                   {" "}
-                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" />
+                  <input className="text-red-600 w-[4.6rem] border-b-2 border-red-500" 
+                  value={fe6Value}
+                  onChange={(e) => setFe6Value(e.target.value)}
+                  />
                 </span>
                 )2SiO4
               </h2>
+              {success6Message ? (
+                <div className="absolute right-[305px] text-green-600 text-xl font-bold my-4">
+                  {success6Message}
+                </div>
+              ) : error6Message ? (
+                <div className="absolute right-[305px] text-red-600 text-xl font-bold my-4">
+                  {error6Message}
+                </div>
+              ) : null}
             </li>
             <button
               onClick={() => {
-                console.log("placeholder");
+                handleSubmit();
               }}
               className="bg-red-900 text-white px-4 py-2 rounded-md mt-4 hover:bg-red-800"
             >
